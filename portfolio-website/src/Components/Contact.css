@@ -1,0 +1,10 @@
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: red;
+    border-radius: 10%;
+    margin: 10px;
+    position: relative;
+}
