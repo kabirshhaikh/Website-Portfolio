@@ -1,10 +1,17 @@
 .introduction-container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     height: 100vh;
     background-color: red;
     border-radius: 10%;
     margin: 10px;
     position: relative;
+}
+
+.intro-text-container {
+    /* Added margin to create space between the image and text */
+    margin-left: 20px;
+    color: white; /* Set text color */
 }
