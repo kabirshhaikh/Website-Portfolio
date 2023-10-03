@@ -10,8 +10,22 @@
     position: relative;
 }
 
+.intro-image-text-container {
+    display: flex;
+    flex: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+
 .intro-text-container {
-    /* Added margin to create space between the image and text */
-    margin-left: 20px;
-    color: white; /* Set text color */
+    width: 50%;
+    height: 100%;
 }
