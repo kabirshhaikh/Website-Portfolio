@@ -1,22 +1,16 @@
 import "./App.css";
-import Header from "./Components/Header";
 import Introduction from "./Components/Introduction";
 import Project from "./Components/Project";
 import Contact from "./Components/Contact";
-
-// -> Header
-// ->Main Section:
-//   - Introduction
-//   - Projects
-//    - Contact Me
+import DrawerAppBar from "./Components/DrawerAppBar";
 
 function App() {
   return (
     <div className="App">
       <div className="header">
-        <Header />
+        <DrawerAppBar />
       </div>
-      <div id="Intro" className="introduction">
+      <div id="Introduction" className="introduction">
         <Introduction />
       </div>
       <div id="Project" className="project">

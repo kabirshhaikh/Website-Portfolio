@@ -10,14 +10,13 @@ const Introduction = () => {
   });
   return (
     <div className="introduction-container">
-      <div className="image-text-continer">
-        {/* <div className="intro-picture-container">
-          <img
-            style={{ width: "10%", height: "10%" }}
-            src={headshot}
-            alt="headshot"
-          ></img>
-        </div> */}
+
+      <div className="intro-image-text-container">
+
+        <div className="image-container">
+          <img style={{width:'50%', height:'50%', borderRadius:'10%'}} src={headshot} alt="headshot-image" />
+        </div>
+
         <div className="intro-text-container">
           <h1>Kabir here!</h1>
           <h2>and I'm a</h2>
@@ -30,7 +29,9 @@ const Introduction = () => {
             <Cursor cursorStyle="/" />
           </span>
         </div>
+
       </div>
+
     </div>
   );
 };
