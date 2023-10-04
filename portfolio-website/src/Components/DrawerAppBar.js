@@ -18,8 +18,8 @@ import { Link as ScrollLink } from "react-scroll";
 
 const drawerWidth = 240;
 const navItems = [
-  { name: "Introduction", id: "1" },
-  { name: "Project", id: "2" },
+  { name: "About", id: "1" },
+  { name: "Experience", id: "2" },
   { name: "Contact", id: "3" },
 ];
 
@@ -86,7 +86,7 @@ function DrawerAppBar(props) {
               <ScrollLink
                 to={item.name}
                 smooth={true}
-                offset={85}
+                offset={-50}
                 duration={500}
                 key={item.id}
               >

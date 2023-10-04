@@ -1,6 +1,6 @@
 import "./App.css";
 import Introduction from "./Components/Introduction";
-import Project from "./Components/Project";
+import Experience from "./Components/Experience";
 import Contact from "./Components/Contact";
 import DrawerAppBar from "./Components/DrawerAppBar";
 
@@ -10,11 +10,11 @@ function App() {
       <div className="header">
         <DrawerAppBar />
       </div>
-      <div id="Introduction" className="introduction">
+      <div id="About" className="introduction">
         <Introduction />
       </div>
-      <div id="Project" className="project">
-        <Project />
+      <div id="Experience" className="project">
+        <Experience />
       </div>
       <div id="Contact" className="contact">
         <Contact />
