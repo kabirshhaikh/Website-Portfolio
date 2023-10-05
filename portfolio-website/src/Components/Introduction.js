@@ -15,7 +15,7 @@ const Introduction = () => {
           <img
             style={{ width: "50%", height: "50%", borderRadius: "10%" }}
             src={headshot}
-            alt="headshot-image"
+            alt="headshot"
           />
         </div>
 
@@ -32,7 +32,8 @@ const Introduction = () => {
             <br />
             Armed with expertise in cloud, databases, and an arsenal of
             programming languages, I'm your go-to expert for crafting
-            exceptional web solutions. Join me in transforming ideas into digital marvels.
+            exceptional web solutions. Join me in transforming ideas into
+            digital marvels.
           </h3>
         </div>
       </div>

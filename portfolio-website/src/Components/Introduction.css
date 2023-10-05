@@ -5,7 +5,7 @@
   align-items: center;
   height: 100vh;
   background-color: #edcec4;
-  margin: 80px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -34,8 +34,30 @@
 }
 
 .intro-text-container h3 {
+  font-weight: bold;
   white-space: pre-wrap;
-  font-size: 15px; 
-  line-height: 1.5; 
+  font-size: 15px;
+  line-height: 1.5;
   text-align: left;
 }
+
+/* Media Query for Mobile: */
+
+@media (max-width: 450px) {
+  .intro-image-text-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+}
+
+/* Media Query for Mobile: */
