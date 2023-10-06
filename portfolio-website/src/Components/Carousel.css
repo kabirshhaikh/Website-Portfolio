@@ -5,3 +5,12 @@
   align-items: center;
   width: 100%;
 }
+
+/* Add this to your Carousel.css */
+.card-container.active {
+  display: block;
+}
+
+.card-container {
+  display: none;
+}
