@@ -35,6 +35,14 @@ const Form = () => {
             placeholder="Email"
           />
         </div>
+        <div class="form-group" style={{ maxWidth: "315px" }}>
+          <textarea
+            placeholder="Message"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
       </div>
       <button
         style={{ marginTop: "10px" }}
