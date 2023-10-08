@@ -1,0 +1,32 @@
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-height: inherit;
+}
+
+.card-container.active {
+  display: block;
+}
+
+.card-container {
+  display: none;
+  flex: 0 0 auto;
+}
+
+/* Mobile View */
+@media (max-width: 450px) {
+  .carousel-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button-container,
+  .forward-button-container {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+  }
+}
