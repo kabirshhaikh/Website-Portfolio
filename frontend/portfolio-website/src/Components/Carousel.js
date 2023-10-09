@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./Carousel.css";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import mumbai from "../Image/mumbai.jpeg";
 
 const Carousel = (props) => {
-  const dataFromProps = props.data;
+  const dataFromProps = props?.data?.experienceFromDatabase;
+  console.log("Data from Carousel:" + dataFromProps);
   const [currentIndex, setCurrentIndex] = useState(0);
   const backButton = "<";
   const forwardButton = ">";
@@ -34,11 +34,10 @@ const Carousel = (props) => {
           {backButton}
         </Button>
       </div>
-
       {dataFromProps.map((item, index) => {
         return (
           <div
-            key={item.id}
+            key={item._id}
             className={`card-container ${
               index === currentIndex ? "active" : ""
             }`}
@@ -46,21 +45,21 @@ const Carousel = (props) => {
             <Card sx={{ maxWidth: 500 }}>
               <CardMedia
                 sx={{ height: 200, width: "100%" }}
-                image={mumbai} 
+                image={mumbai}
                 title="city image"
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {item.companyName}
+                  {item.jobName}
                 </Typography>
                 <Typography variant="subtitle1">
-                  <b>{item.titleName}</b>
+                  <b>{item.jobPosition}</b>
                 </Typography>
                 <Typography variant="subtitle1">
-                  {item.duration}, {item.place}
+                  {item.jobDuration}, {item.jobPlace}
                 </Typography>
                 <ul>
-                  {item.responsibilty.map((responsibility, index) => (
+                  {item.jobResponsibility.map((responsibility, index) => (
                     <li style={{ marginTop: "10px" }} key={index}>
                       {responsibility}
                     </li>
