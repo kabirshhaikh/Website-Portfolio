@@ -2,9 +2,11 @@ const express = require("express");
 const router = require("./Routes/route");
 const bodyParser = require("body-parser");
 const moongose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 const PORT = 4000;
