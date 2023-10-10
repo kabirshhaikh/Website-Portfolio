@@ -3,20 +3,27 @@ const multer = require("multer");
 const ExperienceModel = require("../Model/ExperienceModel");
 
 const uploadJobExperience = async (req, res, next) => {
-  const { jobName, jobPlace, jobPosition, jobDuration, jobResponsibility } =
-    req.body;
-  const imageBuffer = req.file.buffer;
-  const contentType = req.file.mimetype;
+  const {
+    jobName,
+    jobPlace,
+    jobPosition,
+    jobDuration,
+    jobResponsibility,
+    imageUrl,
+  } = req.body;
+
+  const fileExtension = imageUrl.split(".").pop().toLowerCase();
+  const image = {
+    data: imageUrl,
+    contentType: `image/${fileExtension}`,
+  };
 
   const newExperience = new ExperienceModel({
     jobName,
     jobDuration,
     jobPlace,
     jobPosition,
-    image: {
-      data: imageBuffer,
-      contentType,
-    },
+    image,
     jobResponsibility,
   });
 

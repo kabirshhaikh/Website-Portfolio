@@ -34,42 +34,46 @@ const Carousel = (props) => {
           {backButton}
         </Button>
       </div>
-      {dataFromProps.map((item, index) => {
-        return (
-          <div
-            key={item._id}
-            className={`card-container ${
-              index === currentIndex ? "active" : ""
-            }`}
-          >
-            <Card sx={{ maxWidth: 500 }}>
-              <CardMedia
-                sx={{ height: 200, width: "100%" }}
-                image={mumbai}
-                title="city image"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {item.jobName}
-                </Typography>
-                <Typography variant="subtitle1">
-                  <b>{item.jobPosition}</b>
-                </Typography>
-                <Typography variant="subtitle1">
-                  {item.jobDuration}, {item.jobPlace}
-                </Typography>
-                <ul>
-                  {item.jobResponsibility.map((responsibility, index) => (
-                    <li style={{ marginTop: "10px" }} key={index}>
-                      {responsibility}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        );
-      })}
+      {dataFromProps &&
+        dataFromProps.map((item, index) => {
+          return (
+            <div
+              key={item._id}
+              className={`card-container ${
+                index === currentIndex ? "active" : ""
+              }`}
+            >
+              <Card sx={{ maxWidth: 500 }}>
+                <CardMedia
+                  sx={{ height: 200, width: "100%" }}
+                  component="img"
+                  src={`data:${
+                    item.image.contentType
+                  };base64,${item.image.data.toString("base64")}`}
+                  alt="city image"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {item.jobName}
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    <b>{item.jobPosition}</b>
+                  </Typography>
+                  <Typography variant="subtitle1">
+                    {item.jobDuration}, {item.jobPlace}
+                  </Typography>
+                  <ul>
+                    {item.jobResponsibility.map((responsibility, index) => (
+                      <li style={{ marginTop: "10px" }} key={index}>
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+          );
+        })}
 
       <div className="forward-button-container">
         <Button variant="contained" onClick={handleForward}>
