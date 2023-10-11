@@ -1,6 +1,14 @@
-const express = require("express");
-const multer = require("multer");
 const ExperienceModel = require("../Model/ExperienceModel");
+const Email = require("../Model/Email");
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service: "outlook",
+  auth: {
+    user: "kabir28051998@outlook.com",
+    pass: "17227860Stallion10@",
+  },
+});
 
 const uploadJobExperience = async (req, res, next) => {
   const {
@@ -56,7 +64,41 @@ const getAllExperiences = async (req, res, next) => {
   }
 };
 
+const sendEmail = async (req, res, next) => {
+  const { firstName, lastName, email, message } = req.body;
+  const mailOptions = {
+    from: "kabir28051998@outlook.com",
+    to: `${email}`,
+    subject: `Hi ${firstName} ${lastName}, this is a test subject`,
+    text: `${message}`,
+  };
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Mail sent: " + info.response);
+    }
+  });
+
+  const newEmail = Email({
+    firstName,
+    lastName,
+    email,
+    message,
+  });
+
+  const saveEmail = await newEmail.save();
+
+  if (!saveEmail) {
+    res.status(500).send("Unable to save the email details");
+  } else {
+    res.status(201).send("Mail sent");
+  }
+};
+
 module.exports = {
   uploadJobExperience,
   getAllExperiences,
+  sendEmail,
 };

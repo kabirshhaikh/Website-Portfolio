@@ -10,5 +10,6 @@ router.post(
 );
 
 router.get("/get-all-experiences", experienceController.getAllExperiences);
+router.post("/send-email", experienceController.sendEmail);
 
 module.exports = router;
