@@ -69,8 +69,8 @@ const sendEmail = async (req, res, next) => {
   const mailOptions = {
     from: "kabir28051998@outlook.com",
     to: `${email}`,
-    subject: `Hi ${firstName} ${lastName}, this is a test subject`,
-    text: `${message}`,
+    subject: `Hi ${firstName} ${lastName}, thank you for reaching out.`,
+    text: `Hey, thank you for reaching out! Kabir will get in touch shortly! `,
   };
 
   transporter.sendMail(mailOptions, (err, info) => {

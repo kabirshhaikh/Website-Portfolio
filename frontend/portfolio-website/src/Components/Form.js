@@ -1,11 +1,60 @@
+import { useState } from "react";
+
 const Form = () => {
-  const handleSubmit = (event) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Event Default Triggered!");
+    const formData = {
+      firstName,
+      lastName,
+      email,
+      message,
+    };
+
+    try {
+      const response = await fetch("http://localhost:4000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        alert("Something went wrong");
+      } else {
+        alert("Email sent sucessfully!");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleFirstName = (event) => {
+    setFirstName(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleLastName = (event) => {
+    setLastName(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleMessage = (event) => {
+    setMessage(event.target.value);
+    console.log(event.target.value);
   };
 
   return (
-    <form onClick={handleSubmit} className="needs-validation" noValidate>
+    <form onSubmit={handleSubmit} className="needs-validation" noValidate>
       <div className="form-row">
         <div className="col-md-4 mb-3">
           <input
@@ -14,6 +63,8 @@ const Form = () => {
             id="validationTooltip01"
             placeholder="First name"
             required
+            onChange={handleFirstName}
+            value={firstName}
           />
           <div className="valid-tooltip">Looks good!</div>
         </div>
@@ -23,6 +74,8 @@ const Form = () => {
             className="form-control"
             id="validationTooltip02"
             placeholder="Last name"
+            onChange={handleLastName}
+            value={lastName}
             required
           />
           <div className="valid-tooltip">Looks good!</div>
@@ -33,6 +86,8 @@ const Form = () => {
             className="form-control"
             id="inputEmail4"
             placeholder="Email"
+            onChange={handleEmail}
+            value={email}
           />
         </div>
         <div class="form-group" style={{ maxWidth: "315px" }}>
@@ -40,6 +95,8 @@ const Form = () => {
             placeholder="Message"
             class="form-control"
             id="exampleFormControlTextarea1"
+            onChange={handleMessage}
+            value={message}
             rows="3"
           ></textarea>
         </div>
