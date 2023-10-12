@@ -5,11 +5,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import mumbai from "../Image/mumbai.jpeg";
 
 const Carousel = (props) => {
   const dataFromProps = props?.data?.experienceFromDatabase;
-  console.log("Data from Carousel:" + dataFromProps);
   const [currentIndex, setCurrentIndex] = useState(0);
   const backButton = "<";
   const forwardButton = ">";
@@ -43,13 +41,12 @@ const Carousel = (props) => {
                 index === currentIndex ? "active" : ""
               }`}
             >
+              {console.log(item.image.data, +"Image data in the carousel")}
               <Card sx={{ maxWidth: 500 }}>
                 <CardMedia
                   sx={{ height: 200, width: "100%" }}
                   component="img"
-                  src={`data:${
-                    item.image.contentType
-                  };base64,${item.image.data.toString("base64")}`}
+                  src={`data:${item.image.contentType};base64,${item.image.data}`}
                   alt="city image"
                 />
                 <CardContent>
