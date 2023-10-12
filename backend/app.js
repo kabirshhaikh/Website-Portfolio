@@ -3,11 +3,14 @@ const router = require("./Routes/route");
 const bodyParser = require("body-parser");
 const moongose = require("mongoose");
 const cors = require("cors");
+const uploads = require("./Multer/MulterConfig");
+require("dotenv").config();
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/uploads", express.static("uploads"));
 app.use(router);
 const PORT = 4000;
 

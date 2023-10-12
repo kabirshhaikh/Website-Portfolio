@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const experienceController = require("../Controller/Experience");
-const multer = require("../Multer/Multer");
+const upload = require("../Multer/MulterConfig");
 
 router.post(
   "/post-job-experience",
-  multer.single("image"),
+  upload.single("image"),
   experienceController.uploadJobExperience
 );
 
