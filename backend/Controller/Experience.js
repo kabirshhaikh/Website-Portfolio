@@ -1,14 +1,14 @@
-require("dotenv").config();
 const ExperienceModel = require("../Model/ExperienceModel");
 const Email = require("../Model/Email");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
+require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
   service: "outlook",
   auth: {
-    user: process.env.USER,
-    pass: process.env.PASSWORD,
+    user: "kabir28051998@outlook.com",
+    pass: "17227860Stallion10@",
   },
 });
 
