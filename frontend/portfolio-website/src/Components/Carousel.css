@@ -16,6 +16,26 @@
   flex: 0 0 auto;
 }
 
+#jobName {
+  font-family: "Anton", sans-serif;
+  font-size: 30px;
+}
+
+#jobPosition {
+  font-family: "Dancing Script", cursive;
+  font-size: 25px;
+}
+
+#jobDuration {
+  font-family: "Teko", sans-serif;
+  font-size: 25px;
+}
+
+#jobResponsibility {
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+}
+
 /* Mobile View */
 @media (max-width: 450px) {
   .carousel-container {

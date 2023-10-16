@@ -36,6 +36,7 @@ const Carousel = (props) => {
         dataFromProps.map((item, index) => {
           return (
             <div
+              style={{ border: "2px solid black" }}
               key={item._id}
               className={`card-container ${
                 index === currentIndex ? "active" : ""
@@ -48,20 +49,29 @@ const Carousel = (props) => {
                   component="img"
                   src={`data:${item.image.contentType};base64,${item.image.data}`}
                   alt="city image"
+                  style={{ borderBottom: "3px solid black" }}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {item.jobName}
+                    <span id="jobName">{item.jobName}</span>
                   </Typography>
                   <Typography variant="subtitle1">
-                    <b>{item.jobPosition}</b>
+                    <b id="jobPosition">{item.jobPosition}</b>
                   </Typography>
                   <Typography variant="subtitle1">
-                    {item.jobDuration}, {item.jobPlace}
+                    <span id="jobDuration">
+                      {item.jobDuration}, {item.jobPlace}
+                    </span>
                   </Typography>
                   <ul>
                     {item.jobResponsibility.map((responsibility, index) => (
-                      <li style={{ marginTop: "10px" }} key={index}>
+                      <li
+                        style={{
+                          marginTop: "10px",
+                        }}
+                        key={index}
+                        id="jobResponsibility"
+                      >
                         {responsibility}
                       </li>
                     ))}
